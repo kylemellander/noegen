@@ -20,7 +20,9 @@ defmodule Noegen.Router do
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", Noegen do
-  #   pipe_through :api
-  # end
+  scope "/api", Noegen do
+    pipe_through :api
+
+    resources "/users", UserController, except: [:new, :edit, :delete]
+  end
 end
