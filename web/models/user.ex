@@ -28,6 +28,12 @@ defmodule Noegen.User do
 
   @doc """
   Builds a changeset for registering user.
+
+  ## Parameters
+
+    - struct: a Struct of Noegen.User
+    - params: Map that contains registration parameters
+      (:username, :email, :password)
   """
   def registration_changeset(struct, params) do
     @spec registration_changeset(struct, params :: map) :: changeset
