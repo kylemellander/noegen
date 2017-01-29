@@ -17,9 +17,20 @@ defmodule Noegen.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Noegen, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+    [
+      mod: {Noegen, []},
+      applications: [
+        :phoenix,
+        :phoenix_pubsub,
+        :phoenix_html,
+        :cowboy,
+        :logger,
+        :gettext,
+        :phoenix_ecto,
+        :postgrex,
+        :comeonin
+      ]
+    ]
   end
 
   # Specifies which paths to compile per environment.
@@ -40,7 +51,7 @@ defmodule Noegen.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.5", only: [:dev, :test]},
-      {:argon2_elixir, "~> 0.12"}
+      {:comeonin, "~> 3.0"}
     ]
   end
 
