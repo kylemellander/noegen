@@ -51,7 +51,8 @@ defmodule Noegen.Mixfile do
       {:gettext, "~> 0.11"},
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.5", only: [:dev, :test]},
-      {:comeonin, "~> 3.0"}
+      {:comeonin, "~> 3.0"},
+      {:guardian, "~> 0.14"}
     ]
   end
 

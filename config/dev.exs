@@ -41,3 +41,6 @@ config :noegen, Noegen.Repo,
   database: "noegen_dev",
   hostname: "localhost",
   pool_size: 10
+
+config :guardian, Guardian,
+  secret_key: "vF7tUYYBWtZQKjcq/J/kVF4xW334tYbtggrWlygy5VyeLrt8qi3BrmPwsokIlExu"
