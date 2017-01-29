@@ -13,7 +13,12 @@ defmodule Noegen.UserController do
 
         new_conn
         |> put_status(:created)
-        |> render(Noegen.SessionView, "show.json", user: user, jwt: jwt_token)
+        |> render(
+          Noegen.SessionView,
+          "show.json",
+          user: user,
+          jwt_token: jwt_token
+        )
       {:error, changeset} ->
         conn
         |> put_status(:unprocessable_entity)

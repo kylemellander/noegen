@@ -1,18 +1,11 @@
 defmodule Noegen.UserView do
   use Noegen.Web, :view
 
-  def render("index.json", %{users: users}) do
-    %{data: render_many(users, Noegen.UserView, "user.json")}
-  end
-
-  def render("show.json", %{user: user}) do
-    %{data: render_one(user, Noegen.UserView, "user.json")}
-  end
-
   def render("user.json", %{user: user}) do
-    %{id: user.id,
+    %{
+      id: user.id,
       username: user.username,
-      email: user.email,
-      password_hash: user.password_hash}
+      email: user.email
+    }
   end
 end
