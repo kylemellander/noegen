@@ -8,15 +8,15 @@ defmodule Noegen.SessionView do
     }
   end
 
-  def render("error.json", _) do
-    %{error: "Invalid email and/or password"}
-  end
-
   def render("delete.json", _) do
     %{ok: true}
   end
 
-  def render("forbidden.json", %{error: error}) do
-    %{error: error}
+  def render("unauthorized.json", _) do
+    %{error: "Unauthorized"}
+  end
+
+  def render("forbidden.json", _) do
+    %{error: "Forbidden"}
   end
 end
