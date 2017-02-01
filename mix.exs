@@ -52,7 +52,8 @@ defmodule Noegen.Mixfile do
       {:cowboy, "~> 1.0"},
       {:credo, "~> 0.5", only: [:dev, :test]},
       {:comeonin, "~> 3.0"},
-      {:guardian, "~> 0.14"}
+      {:guardian, "~> 0.14"},
+      {:cors_plug, "~> 1.1"}
     ]
   end
 

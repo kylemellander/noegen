@@ -38,5 +38,7 @@ defmodule Noegen.Endpoint do
     key: "_noegen_key",
     signing_salt: "mk6y/xuy"
 
+  plug CORSPlug
+
   plug Noegen.Router
 end
