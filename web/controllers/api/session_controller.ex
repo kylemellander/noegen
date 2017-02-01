@@ -44,7 +44,7 @@ defmodule Noegen.SessionController do
     |> render("forbidden.json")
   end
 
-  defp authenticate(%{email: email, password: password}) do
+  defp authenticate(%{"email" => email, "password" => password}) do
     user = Repo.get_by(Noegen.User, email: String.downcase(email))
 
     case credentials_valid?(user, password) do
