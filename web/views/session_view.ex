@@ -4,7 +4,7 @@ defmodule Noegen.SessionView do
   def render("show.json", %{user: user, jwt_token: jwt_token}) do
     %{
       data: render_one(user, Noegen.UserView, "user.json"),
-      meta: %{token: jwt_token}
+      token: jwt_token
     }
   end
 

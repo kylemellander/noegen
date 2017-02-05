@@ -52,6 +52,9 @@ defmodule Noegen.SessionController do
       _ -> :unauthorized
     end
   end
+  defp authenticate(_) do
+    :unauthorized
+  end
 
   defp credentials_valid?(user, password) do
     case user do
