@@ -1,15 +1,13 @@
 defmodule Noegen.SessionController do
   use Noegen.Web, :controller
 
-  alias Noegen.User
-
   def create(conn, params) do
     case authenticate(params) do
       {:ok, user} ->
         new_conn = Guardian.Plug.api_sign_in(conn, user, :access)
         jwt_token = Guardian.Plug.current_token(new_conn)
 
-        render_show(new_conn, user: user, jwt_token: jwt_token)
+        render_show(new_conn, jwt_token: jwt_token)
       :unauthorized ->
         unauthorized(conn)
     end
