@@ -1,11 +1,8 @@
 defmodule Noegen.SessionView do
   use Noegen.Web, :view
 
-  def render("show.json", %{user: user, jwt_token: jwt_token}) do
-    %{
-      data: render_one(user, Noegen.UserView, "user.json"),
-      token: jwt_token
-    }
+  def render("show.json", %{jwt_token: jwt_token}) do
+    %{token: jwt_token}
   end
 
   def render("delete.json", _) do
