@@ -9,6 +9,10 @@ use Mix.Config
 config :noegen,
   ecto_repos: [Noegen.Repo]
 
+config :plug, :mimes, %{
+  "application/vnd.api+json" => ["json-api"]
+}
+
 # Configures the endpoint
 config :noegen, Noegen.Endpoint,
   url: [host: "localhost"],
