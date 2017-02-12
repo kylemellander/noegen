@@ -3,6 +3,13 @@ defmodule Noegen.UserController do
 
   alias Noegen.User
 
+  def show(conn, %{"id" => "current"}) do
+    case Guardian.Plug.current_resource(conn) do
+      nil -> render(conn, Noegen.ErrorView, "error.json", status: 401)
+      user -> render(conn, "show.json", user: user)
+    end
+  end
+
   def create(conn, params) do
     changeset = User.registration_changeset(%User{}, params)
 

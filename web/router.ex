@@ -10,7 +10,7 @@ defmodule Noegen.Router do
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug :accepts, ["json", "json-api"]
     plug Guardian.Plug.VerifyHeader, realm: "Bearer"
     plug Guardian.Plug.LoadResource
   end
@@ -27,6 +27,6 @@ defmodule Noegen.Router do
 
     resources "/sessions", SessionController, only: [:create, :delete]
     post "/sessions/refresh", SessionController, :refresh
-    resources "/users", UserController, only: [:create]
+    resources "/users", UserController, only: [:create, :show]
   end
 end
