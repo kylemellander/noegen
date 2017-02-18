@@ -12,6 +12,8 @@ defmodule Noegen.Room do
     field :name, :string
     field :topic, :string
 
+    many_to_many :users, Noegen.User, join_through: "user_rooms"
+
     timestamps()
   end
 
@@ -22,6 +24,7 @@ defmodule Noegen.Room do
   def changeset(struct, params \\ %{}) do
     struct
     |> cast(params, [:name, :topic])
-    |> validate_required([:name, :topic])
+    |> validate_required([:name])
+    |> unique_constraint([:name])
   end
 end
