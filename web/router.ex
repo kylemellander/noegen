@@ -25,8 +25,10 @@ defmodule Noegen.Router do
   scope "/api", Noegen do
     pipe_through :api
 
-    resources "/sessions", SessionController, only: [:create, :delete]
+    post "/sessions", SessionController, :create
+    delete "/sessions", SessionController, :delete
     post "/sessions/refresh", SessionController, :refresh
     resources "/users", UserController, only: [:create, :show]
+    resources "/rooms", RoomController, except: [:new, :edit]
   end
 end
