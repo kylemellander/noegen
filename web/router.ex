@@ -29,6 +29,9 @@ defmodule Noegen.Router do
     delete "/sessions", SessionController, :delete
     post "/sessions/refresh", SessionController, :refresh
     resources "/users", UserController, only: [:create, :show]
+    get "/users/:id/rooms", UserController, :rooms
+    get "/users/:id/relationships/rooms", RoomController, :relationship
+    post "/rooms/:id/join", RoomController, :join
     resources "/rooms", RoomController, except: [:new, :edit]
   end
 end
