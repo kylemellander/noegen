@@ -1,6 +1,7 @@
 defmodule Noegen.SessionController do
   use Noegen.Web, :controller
 
+  @spec create(struct, map) :: struct
   def create(conn, params) do
     case authenticate(params) do
       {:ok, user} ->
@@ -13,6 +14,7 @@ defmodule Noegen.SessionController do
     end
   end
 
+  @spec delete(struct, map) :: struct
   def delete(conn, _) do
     conn
     |> Guardian.Plug.current_token()
@@ -23,6 +25,7 @@ defmodule Noegen.SessionController do
     |> render("delete.json")
   end
 
+  @spec refresh(struct, map) :: struct
   def refresh(conn, _) do
     user = Guardian.Plug.current_resource(conn)
     jwt_token = Guardian.Plug.current_token(conn)
@@ -36,6 +39,7 @@ defmodule Noegen.SessionController do
     end
   end
 
+  @spec unauthenticated(struct, map) :: struct
   def unauthenticated(conn, _) do
     conn
     |> put_status(:forbidden)

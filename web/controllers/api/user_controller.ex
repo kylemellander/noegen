@@ -3,6 +3,7 @@ defmodule Noegen.UserController do
 
   alias Noegen.User
 
+  @spec show(struct, map) :: struct
   def show(conn, %{"id" => "current"}) do
     case Guardian.Plug.current_resource(conn) do
       nil -> render(conn, Noegen.ErrorView, "error.json", status: 401)
@@ -10,6 +11,7 @@ defmodule Noegen.UserController do
     end
   end
 
+  @spec create(struct, map) :: struct
   def create(conn, params) do
     changeset = User.registration_changeset(%User{}, params)
 
