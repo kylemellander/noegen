@@ -12,7 +12,7 @@ defmodule Noegen.Room do
     field :name, :string
     field :topic, :string
 
-    many_to_many :users, Noegen.User, join_through: "user_rooms"
+    many_to_many :users, Noegen.User, join_through: "users_rooms"
 
     timestamps()
   end

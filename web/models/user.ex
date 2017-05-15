@@ -10,7 +10,7 @@ defmodule Noegen.User do
     field :password_hash, :string
     field :password, :string, virtual: true
 
-    many_to_many :rooms, Noegen.Room, join_through: "user_rooms"
+    many_to_many :rooms, Noegen.Room, join_through: "users_rooms"
 
     timestamps()
   end
