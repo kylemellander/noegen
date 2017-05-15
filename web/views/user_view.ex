@@ -9,8 +9,23 @@ defmodule Noegen.UserView do
         attributes: %{
           username: user.username,
           email: user.email
+        },
+        relationships: %{
+          rooms: %{
+            links: %{
+              # self: "/users/#{user.id}/relationships/rooms",
+              related: "rooms"
+            }
+          }
         }
       }
+    }
+  end
+
+  def render("relationship.json", %{user: user}) do
+    %{
+      type: "user",
+      id: user.id
     }
   end
 end

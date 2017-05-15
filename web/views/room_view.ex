@@ -11,7 +11,14 @@ defmodule Noegen.RoomView do
 
   def render("room.json", %{room: room}) do
     %{id: room.id,
-      name: room.name,
-      topic: room.topic}
+      type: "rooms",
+      attributes: %{
+        name: room.name,
+        topic: room.topic
+      },
+      relationships: %{
+        users: render_many(room.users, Noegen.UserView, "relationship.json")
+      }
+    }
   end
 end
