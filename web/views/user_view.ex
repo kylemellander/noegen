@@ -1,6 +1,7 @@
 defmodule Noegen.UserView do
   use Noegen.Web, :view
 
+  @spec render(string, map) :: map
   def render("show.json", %{user: user}) do
     %{
       data: %{

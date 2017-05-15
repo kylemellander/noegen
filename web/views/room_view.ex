@@ -1,6 +1,7 @@
 defmodule Noegen.RoomView do
   use Noegen.Web, :view
 
+  @spec render(charlist, map) :: map
   def render("index.json", %{rooms: rooms}) do
     %{data: render_many(rooms, Noegen.RoomView, "room.json")}
   end
